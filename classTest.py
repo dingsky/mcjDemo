@@ -1,8 +1,8 @@
-class animal:
+class Animal:
     def __init__(self, name):
         self.name = name
-    def showName(self):
+    def show(self):
         print(self.name)
 
-lion = animal('lion')
-lion.showName()
+lion = Animal('lion')
+lion.show()
