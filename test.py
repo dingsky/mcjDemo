@@ -1,4 +1,10 @@
-import win32com.client
+from ctypes import *
 
-dm = win32com.client.Dispatch('dm.dmsoft')
-dm.KeyPressStr("123,456", 0)
+def test(x, y):
+    x.append(1)
+    y.append(2)
+    print("diaoyong")
+
+x,y = [], []
+test(x,y)
+print('x:',x,' y:', y)

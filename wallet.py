@@ -43,11 +43,6 @@ time.sleep(1)
 dm.KeyPress(13)
 time.sleep(1)
 
-# 设置全局路径
-ret = dm.SetPath("E:\golang\gocode\src\mcjDemo")
-if ret != 1:
-    print('SetPath error')
-    exit
 
 # 获取窗口句柄
 dm.KeyPress(9)
@@ -63,9 +58,64 @@ if ret != 1:
 time.sleep(1)
 
 # 查找钱包服务的图标位置
-x,y = -1, -1
-dm_ret = dm.FindPic(0,0,2000,2000,"wallet.bmp","000000",0.8,0,x,y)
-if x >= 0 and y >= 0:
-    dm.MoveTo(x,y)
+x, y = 0, 0
+dm_ret = dm.FindPic(0,0,2000,2000,"E:\golang\gocode\src\mcjDemo\wallet.bmp","000000",0.9,0, x, y)
+print('dm_ret', dm_ret[1], dm_ret[2])
+if dm_ret != -1:
+    dm.MoveTo(dm_ret[1], dm_ret[2])
+    time.sleep(1)
+    dm.LeftClick()
+    time.sleep(1)
 else:
-    print("does not found %d %d", x, y)
+    print("does not found ", x, y)
+
+# 按钱包创建按钮
+dm.KeyPress(9)
+time.sleep(1)
+dm.KeyPress(13)
+time.sleep(3)
+
+# 按钱包选择下拉
+dm.KeyPress(9)
+time.sleep(1)
+dm.KeyPress(13)
+time.sleep(1)
+
+# 选择hsm-hd钱包
+dm_ret = dm.FindPic(0,0,2000,2000,"E:\golang\gocode\src\mcjDemo\hsm.bmp","000000",0.9,0, x, y)
+print('dm_ret', dm_ret[1], dm_ret[2])
+if dm_ret != -1:
+    dm.MoveTo(dm_ret[1], dm_ret[2])
+    time.sleep(1)
+    dm.LeftClick()
+    time.sleep(1)
+else:
+    print("does not found ", x, y)
+
+# 输入钱包名称
+dm.KeyPress(9)
+time.sleep(1)
+dm.KeyPressChar('t')
+dm.KeyPressChar('e')
+dm.KeyPressChar('s')
+dm.KeyPressChar('x')
+time.sleep(1)
+
+# 按下一步
+dm.KeyPress(9)
+time.sleep(1)
+dm.KeyPress(13)
+time.sleep(1)
+
+# 输入密码
+dm.KeyPress(9)
+time.sleep(1)
+dm.KeyPressChar('1')
+
+# 下一步
+dm.KeyPress(9)
+time.sleep(1)
+dm.KeyPress(9)
+time.sleep(1)
+dm.KeyPress(13)
+time.sleep(1)
