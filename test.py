@@ -1,10 +1,5 @@
-from ctypes import *
+# -*- coding: GBK -*-
+from function import myTime
 
-def test(x, y):
-    x.append(1)
-    y.append(2)
-    print("diaoyong")
-
-x,y = [], []
-test(x,y)
-print('x:',x,' y:', y)
+print('你好, 世界')
+print(myTime.getLocalTime())
