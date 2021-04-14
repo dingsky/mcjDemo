@@ -1,5 +1,9 @@
-# -*- coding: GBK -*-
 from function import myTime
+import time
 
-print('你好, 世界')
-print(myTime.getLocalTime())
+if __name__=="__main__":
+    print(myTime.getLocalTime())
+
+    while True:
+        print('test for usleep', flush = True)
+        time.sleep(0.01)

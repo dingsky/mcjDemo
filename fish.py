@@ -45,4 +45,5 @@ if __name__=="__main__":
                 dm.RightClick()
                 time.sleep(1)
                 break
+            time.sleep(0.01)
 
