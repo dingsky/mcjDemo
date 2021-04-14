@@ -53,6 +53,17 @@ if __name__=="__main__":
         else:
             print("does not found war into")
 
+        # 点击战场入口
+        dm_ret = dm.FindPic(0, 0, 2000, 2000, "pic\ok.bmp", "000000", 0.9, 0,  x, y)
+        print('dm_ret', dm_ret)
+        if dm_ret[1] != -1 and dm_ret[2] != -1:
+            dm.MoveTo(dm_ret[1], dm_ret[2])
+            time.sleep(1)
+            dm.LeftClick()
+            time.sleep(1)
+        else:
+            print("does not found war into")
+
         # 点击进入战场
         dm_ret = dm.FindPic(0, 0, 2000, 2000, "pic\goinwar.bmp", "000000", 0.9, 0,  x, y)
         print('dm_ret', dm_ret)
@@ -68,7 +79,8 @@ if __name__=="__main__":
                     dm.MoveTo(dm_ret[1], dm_ret[2])
                     time.sleep(1)
                     dm.LeftClick()
-                    time.sleep(5)
+                    time.sleep(2)
+                    break
                 else:
                     dm.KeyPress(32)
                     time.sleep(5)
