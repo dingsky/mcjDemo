@@ -1,3 +1,5 @@
+# 战场挂机脚本
+
 import time
 import win32com.client
 
