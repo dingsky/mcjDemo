@@ -27,7 +27,7 @@ if __name__=="__main__":
         dm.KeyPressChar('8')
         time.sleep(1)
 
-        # 捕捉浮漂
+        # 捕捉浮漂, 这里如果图片招不到的话, 可以通过移动鼠标找鼠标状态来发现
         x = y = 0
         dm_ret = dm.FindPic(0, 0, 2000, 2000, "pic\mark.bmp", "000000", 0.9, 0,  x, y)
         print('dm_ret', dm_ret[1], dm_ret[2])
@@ -38,7 +38,7 @@ if __name__=="__main__":
             print("does not found war")
             continue
 
-        # 等待上鱼
+        # 等待上鱼 965986689鼠标在鱼漂上, 1053591638正常鼠标
         while True:
             shape = dm.GetCursorShape()
             if shape == 1053591638:
