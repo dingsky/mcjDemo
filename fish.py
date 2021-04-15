@@ -28,8 +28,24 @@ if __name__=="__main__":
         time.sleep(5)
 
         rect = dm.GetWindowRect(hwnd, 0, 0, 0, 0)
-        dm_ret = dm.FindColor(470, 334, 780, 583,"d4ad6b-000000|c1996b-000000", 0.9, 5, 0, 0)
-        print(dm_ret)
-        dm.MoveTo(dm_ret[1], dm_ret[2])
-        time.sleep(3)
+        flag = False
+        for xPos in range(dm_ret[1], dm_ret[3], 10):
+            if flag:
+                break
+            for yPos in range(dm_ret[2], dm_ret[4], 10):
+                dm.MoveTo(xPos, yPos)
+                shape = dm.GetCursorShape()
+                if shape == 1053591638:
+                    flag = True
+                    break
 
+        if flag:
+            while True:
+                time.sleep(0.1)
+                shape = dm.GetCursorShape()
+                if shape == 965986689:
+                    dm.RightClick()
+                    print('应该上鱼了, 等待1秒自动拾取')
+                    time.sleep(1)
+        else:
+            print('没找到浮漂, 开始下一轮')
