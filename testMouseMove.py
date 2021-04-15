@@ -1,6 +1,6 @@
 # 钓鱼脚本
 
-import time
+from function import myTime
 import win32com.client
 
 if __name__ == "__main__":
@@ -13,7 +13,9 @@ if __name__ == "__main__":
     print(dm_ret)
 
     # 移动鼠标
+    print(myTime.getLocalTime())
     for xPos in range(dm_ret[1], dm_ret[3], 10):
         for yPos in range(dm_ret[2], dm_ret[4], 10):
             dm.MoveTo(xPos, yPos)
+    print(myTime.getLocalTime())
 
